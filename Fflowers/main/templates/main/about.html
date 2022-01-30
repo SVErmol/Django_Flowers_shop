@@ -1,0 +1,94 @@
+
+{%extends 'main/layout.html'%}
+
+{%block title%}О нас{%endblock%}
+
+{%block content%}
+{% load static %}
+<head>
+	<meta name="description" content=" О компании fleur de beaute.
+Красивые, свежие и стильные букеты от 350 руб | Заказать букет цветов с бесплатной доставкой  интернет-магазине FLEUR DE BEAUTE. Наш телефон: 54634346" />
+  <meta property="og:locale" content="ru-ru">
+  <meta property="og:rich_attachment" content="true">
+  <meta property="og:site_name" content="Fleur de beaute">
+
+  <meta property="og:title" content="О нас" />
+  <meta property="og:description" content="О нас" />
+  
+</head>
+ <ul class="breadcrumb">
+      <li><a href="{% url 'home' %}">Главная</a></li>
+
+
+      <li>О нас</li>
+    </ul>
+
+    <h1>О нас</h1>
+
+    <div class="about_">
+
+      <div class="product-card">
+
+        <img class="img1" src="{% static 'main/image/fl.jpg' %}" width=300px">
+
+
+        <div class="information">
+
+
+
+
+          <div class="inf"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.
+            Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis
+            urna.
+
+            Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. </div>
+          <div class="inf"> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+            egestas.
+            Proin pharetra nonummy pede. Mauris et orci.
+            Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
+            Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem
+            venenatis eleifend. Ut nonummy.
+          </div>
+
+
+        </div>
+
+
+      </div>
+      <br>
+      <div class="product-card">
+
+
+
+
+        <div class="information">
+
+
+
+
+          <div class="inf"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.
+            Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis
+            urna.
+
+            Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. </div>
+          <div class="inf"> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+            egestas.
+            Proin pharetra nonummy pede. Mauris et orci.
+            Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
+            Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem
+            venenatis eleifend. Ut nonummy.
+          </div>
+
+
+        </div>
+
+<img class="img1" src="{% static 'main/image/fl.jpg' %}" width=300px">
+      </div>
+    </div>
+    </div>
+    <br>
+    <div class="map">
+      <script type="text/javascript" charset="utf-8" async
+        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa6e60f21514b6da8093bda326eac8715880556d944feee772bc928ed43be6ff5&amp;width=80%&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+    </div>
+{%endblock%}

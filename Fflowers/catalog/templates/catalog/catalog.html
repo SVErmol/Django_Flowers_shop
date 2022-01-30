@@ -1,0 +1,159 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}Каталог{%endblock%}
+
+{%block content%}
+{% load static %}
+<head>
+    <meta name="description" content="Катало цветов" />
+  
+  
+    <meta property="og:locale" content="ru_RU"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content='Каталог цветов'/>
+	<meta name="description" content="FLEUR DE BEAUTÉ  - это прекрасные цветы!
+Красивые, свежие и стильные букеты от 350 руб | Заказать букет цветов с бесплатной доставкой  интернет-магазине FLEUR DE BEAUTE. Наш телефон: 54634346" />  
+    <meta property="og:site_name" content="fleur de beaute - интернет-магазин цветов в Иркутске"/>
+  </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+ 
+
+</script>
+<ul class="breadcrumb">
+    <li><a href="{% url 'home' %}">Главная</a></li>
+
+
+    <li>Каталог</li>
+</ul>
+
+<h1>Каталог</h1>
+
+<!-- Contenedor -->
+<div class="re">
+    <div class="fil">
+        <ul id="accordion" class="accordion">
+
+            <li>
+                <div class="link"></i>Цветы<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu_1">
+                    <li><a href="#">Гортензии</a></li>
+                    <li><a href="#">Хризантемы</a></li>
+                    <li><a href="#">Тюльпаны</a></li>
+                    <li><a href="#">Орхидеи</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link"></i>Для кого<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu_1">
+                    <li><a href="#">Женщине</a></li>
+                    <li><a href="#">Мужчине</a></li>
+                    <li><a href="#">Ребенку</a></li>
+                    <li><a href="#">Деловому партнеру</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link"></i>Цена<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu_1">
+                    <li><a href="#">До 2000 руб</a></li>
+                    <li><a href="#">2000-3500 руб</a></li>
+                    <li><a href="#">3500-5000 руб</a></li>
+                    <li><a href="#">от 5000 руб</a></li>
+
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="cat_">
+        <form>
+        <div class="opt">
+            <label>Сортировка по:</label>
+            <div>
+                 <select name="sort" onchange="this.form.submit()">
+                <option value="price" {% if sort == "price" %} selected{% endif %}>по возрастанию цены</option>
+                <option value="-price" {% if sort == "-price" %} selected{% endif %}>по убыванию цены</option>
+                <option value="name_product" {% if sort == "name_product" %} selected{% endif %}>по алфавиту</option>
+                </select>
+            </div>
+            <label>Показать по:  </label>
+            <div>
+                <select name="count" onchange="this.form.submit()">
+                <option value="2" {% if count == 2 %} selected{% endif %}>2</option>
+                <option value="3" {% if count == 3 %} selected{% endif %}>3</option>
+                <option value="4" {% if count == 4 %} selected{% endif %}>4</option>
+                </select>
+            </div>
+            <p class="opt__"><span>Цветы:</span> <select>
+                    <option>Розы</option>
+                    <option>По уменьшению цены</option>
+                </select>
+            </p>
+            <p class="opt__">Для кого: <select>
+                    <option>Женщине</option>
+                    <option>По уменьшению цены</option>
+                </select>
+            </p>
+            <p class="opt__">Цена: <select>
+                    <option>До 2000 руб</option>
+                    <option>По уменьшению цены</option>
+                </select>
+            </p>
+        </div>
+        <div class="cat">
+            {% for product in product %}
+            {% for key, value in js.items %}
+            {% if key == product.id %}
+            <div class="product-inner" >
+                <div onclick="location.href='{% url 'product_info' product.id%}'">
+                    <div class="product-wrap">
+                        {% for z in value %}
+                        <img loading="lazy" src="{{ z }}">
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <a class="product-title" href="">{{ product.name_product}}</a>
+                    <br>
+                    <span class="price"> {{ product.price }} Р</span>
+                </div>
+                <div class="actions">
+                    <a href="" class="add-to-cart"><i class="fas fa-shopping-basket"></i> Купить</a>
+
+                    <a href="#" class="wishlist" > <i
+                            class="fas fa-heart"></i> </a>
+                </div>
+            </div>
+
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+
+        </div>
+    </form>
+    </div>
+  
+    <div class="pag">
+        <ul class="pagination">
+            <li {% if not prev %} disabled {% endif %}>    
+                    <a class="page-link" href="{{ prev }}&count={{count}}{{query}}" tabindex="-1" aria-disabled="true">«</a>
+            </li>
+            {% for x in product.paginator.page_range %}
+            {% if x == product.number %}
+            <li class="page-item active"><a class="page-link" href="?page={{ x }}&count={{count}}{{query}}">{{ x }}</a></li>
+            {% elif x > product.number|add:-3 and x < product.number|add:3 %} <li class="page-item"><a class="page-link"
+                href="?page={{ x }}&count={{count}}{{query}}">{{ x }}</a></li>
+              {% endif %}
+              {% endfor %}
+              <li class="page-item {% if not next %} disabled {% endif %}">
+                <a class="page-link" href="{{ next }}&count={{count}}{{query}}">»</a>
+              </li>      
+        </ul>
+    </div>
+
+
+    {%endblock%}

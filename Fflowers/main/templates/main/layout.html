@@ -1,0 +1,455 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+    <script type='application/ld+json'> 
+      {
+        "@context": "http://www.schema.org",
+        "@type": "Organization",
+        "name": "Fleur de beaute",
+        "description": "У нас лучшие цветы в городе",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ленина 11",
+          "addressLocality": "Иркутск",
+          "addressCountry": "Россия"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "463646644"
+        }
+      }
+       </script>
+    <title>{% block title %}{%endblock%}</title>
+ <script> </script>
+
+ <script rel="stylesheet" href="{%static 'main/js/load.js'%}"> </script>
+
+    <link rel="stylesheet" href="{%static 'main/css/normalize.css'%}">
+    <link rel="stylesheet" href="{%static 'main/css/fotorama.css'%}">
+    <link rel="stylesheet" href="{%static 'main/css/main.css'%}">
+    <link rel="stylesheet" href="{%static 'main/css/media.css'%}">
+
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>  
+ <header>
+    <div class="header_">
+      <div class="container_">
+        <div class="header">
+          <div class="menu-icon" data-behaviour="toggle-menu-icon">
+            <span class="menu-icon__bar">
+          </div>
+        </div>
+        <nav class="nav1" data-element="toggle-nav">
+          <ul class="nav__list">
+
+            <li class="nav__item">
+              <a class="nav__link nav__link--plus" data-behaviour="toggle-link-icon">Каталог</a>
+              <ul class="nav__sub-list" data-behaviour="toggle-sub-menu">
+                <li class="nav__item">
+                  <a class="nav__link" href="{% url 'catalog_home' %}">Цветы</a>
+                </li>
+                <li class="nav__sub-item">
+                  <a class="nav__link" href="#">Букеты</a>
+                </li>
+                <li class="nav__sub-item">
+                  <a class="nav__link" href="#">Розы</a>
+                </li>
+                <li class="nav__sub-item">
+                  <a class="nav__link" href="#">Подарки</a>
+                </li>
+                <li class="nav__sub-item">
+                  <a class="nav__link" href="#">Шары</a>
+                </li>
+                <li class="nav__sub-item">
+                  <a class="nav__link" href="#">Оформление</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="{% url 'about' %}">О нас</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="{% url 'delivery' %}">Доставка</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="{% url 'reviews_home' %}">Отзывы</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="{% url 'contacts' %} ">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="nav1">
+        <a class="nav_link" itemprop="url" href="{% url 'about' %}">О нас</a>
+        <a class="nav_link"itemprop="url" href="{% url 'delivery' %}">Доставка и оплата</a>
+        <a class="nav_link" itemprop="url"href="{% url 'reviews_home' %}">Отзывы</a>
+        <a class="nav_link" itemprop="url"href="{% url 'contacts' %}">Контакты</a>
+
+      </nav>
+
+
+      <a class="feedback" href="#modal-two">Обратная связь</a>
+
+      <div class="modal" id="modal-two" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <h2>Обратная связь</h2>
+            <a href="#" class="btn-close" aria-hidden="true">×</a> <!-- Изменяем на "#close"-->
+          </div>
+          <div class="modal-body">
+            <div class="feed">
+              <div class="limiter">
+                <div class="container-login100">
+                  <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+                    <form class="login100-form validate-form flex-sb flex-w">
+
+
+                      <div class="p-t-31 p-b-9">
+                        <div class="txt1">
+                          Имя</div>
+                      </div>
+                      <div class="wrap-input100validate-input" data-validate="">
+                        <input class="input100" type=""  size="25" name="name">
+
+                        <span class="focus-input100"></span>
+                      </div>
+                      <div class="p-t-13p-b-9">
+                        <div class="txt1">
+                          Номер телефона
+                        </div>
+
+                      </div>
+                      <div class="wrap-input100validate-input" data-validate="">
+                        <input class="input100" type="text" size="30" name="phone">
+                        <span class="focus-input100"></span>
+                      </div>
+                      <div class="txt1">
+                        Текст сообщения
+                      </div>
+
+                      <textarea rows="7" name="text"></textarea>
+
+                  </div>
+
+
+                  <button id="btn-send" class="login100-form-btn-1">
+                    Оставить заявку
+                  </button>
+                </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+          <div id="dropDownSelect1"></div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+       $('#btn-send').click(function () {   
+          …
+             });
+       });    
+       </script>
+
+<script type="text/javascript">
+ $(document).ready(function(){   
+    $('#btn-send').click(function () {
+        var email = $('#email').val();
+        var text = $('#text').val();
+
+    });
+});    
+</script>
+
+
+
+      <div class="number">
+        <i class="fas fa-phone"> <a class="num">+79453422343</a></i></a>
+      </div>
+      <div class="social">
+        <a class="icon" href="#"> <i class="fab fa-instagram"></i></a>
+        <a class="icon" href="#"> <i class="fab fa-vk"></i></a>
+
+        <a class="icon" href="#"> <i class="fab fa-whatsapp"></i></a>
+        <a class="icon" href="{% url 'admmin_home' %}"> <i class="fab fa-telegram"></i></a>
+      </div>
+    </div>
+    <hr>
+    <div class="header_footer">
+      <a class="feedback_" href="#modal-two">Обратная связь</a>
+      <a class="LOGO" href="{% url 'home' %}">
+        <div class="logo">FLEUR<br /><span class="black">DE</span><br />BEAUTÉ</div>
+      </a>
+      <nav class="cabinet">
+        <a class="icon" href="{% url 'favorite' %}"> <i class="fas fa-heart"></i></a>
+        <a class="icon" href="{% url 'basket' %}"> <i class="fas fa-shopping-basket"></i></a>
+
+        <a class="icon" href="#modal-one"><i class="fas fa-user-alt"></i></a>
+        <div class="modal" id="modal-one" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-header">
+              <h2>Авторизация</h2>
+              <a href="#" class="btn-close" aria-hidden="true">×</a> <!-- Изменяем на "#close"-->
+            </div>
+            <div class="modal-body">
+              <div class="autho">
+                <div class="limiter">
+                  <div class="container-login100">
+                    <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+                      <form class="login100-form validate-form flex-sb flex-w">
+
+
+                        <div class="p-t-31 p-b-9">
+                          <div class="txt1">
+                            Номер телефона
+                          </div>
+                        </div>
+                        <div class="wrap-input100validate-input" data-validate="Username is required">
+                          <input class="input100" type="text" size="25">
+                          <span class="focus-input100"></span>
+                        </div>
+                        <div class="p-t-13 p-b-9">
+                          <div class="txt1">
+                            Пароль
+                          </div>
+
+                        </div>
+                        <div class="wrap-input100validate-input" data-validate="Password is required">
+                          <input class="input100" type="password" size="25">
+                          <span class="focus-input100"></span>
+                        </div>
+                        <div class="container-login100-form-btnm-t-17">
+
+                          <button class="login100-form-btn">
+                            Войти
+                          </button>
+
+                        </div>
+                        <div class="w-full">
+
+                          <a href="#" class="txt2bo1">
+                            Забыли пароль?
+                          </a><a href="#" class="txt2bo1">
+                            Регистрация
+                          </a>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div id="dropDownSelect1"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+    <!-- <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var scrollbar = document.body.clientWidth - window.innerWidth + 'px';
+                console.log(scrollbar);
+                document.querySelector('[href="#openModal"]').addEventListener('click', function () {
+                    document.body.style.overflow = 'hidden';
+                    document.querySelector('#openModal').style.marginLeft = scrollbar;
+                });
+                document.querySelector('[href="#close"]').addEventListener('click', function () {
+                    document.body.style.overflow = 'visible';
+                    document.querySelector('#openModal').style.marginLeft = '0px';
+                });
+            });
+        </script> -->
+
+  </header>
+  <hr>
+  <main>
+    <div class="container">
+      <nav class="top-menu">
+        <ul class="">
+          <li class="first">
+
+            <a href="{% url 'catalog_home' %}"><span>Цветы</span> <i class="fas fa-angle-down"></i></a>
+
+            <ul data-columns="1" class="">
+              <li class="first"><a href="#"><span>Гортензии</span></a></li>
+              <li> <a href="#"><span>Хризантемы</span></a></li>
+              <li> <a href="#"><span>Розы</span></a> </li>
+              <li> <a href="#"><span>Тюльпаны</span></a> </li>
+              <li> <a href="#"><span>Орхидеи</span></a> </li>
+              <li> <a href="#"><span>Гвоздики</span></a> </li>
+              <li> <a href="#"><span>Подсолнухи</span></a> </li>
+              <li> <a href="#"><span>Ромашки</span></a> </li>
+            </ul>
+          </li>
+          <li class="down">
+            <a href="#"><span>Букеты</span> <i class="fas fa-angle-down"></i></a>
+            <ul data-columns="1" class="">
+              <li class="first"><a href="#"><span>Монобукеты</span></a> </li>
+              <li><a href="#"><span>С ирисами</span></a></li>
+
+              <li><a href="#"><span>С гвоздиками</span></a></li>
+              <li><a href="#"><span>С розами</span></a></li>
+              <li> <a href="#"><span>С лилиями</span></a> </li>
+              <li> <a href="#"><span>С ромашками</span></a> </li>
+              <li> <a href="#"><span>С орхидеями</span></a> </li>
+              <li> <a href="#"><span>Букет невесты</span></a> </li>
+              <li><a href="#"><span>Полевые</span></a> </li>
+
+          </li>
+        </ul>
+        </li>
+        <li class="down">
+          <a href="#"><span>Розы</span><i class="fas fa-angle-down"></i></a>
+          <ul data-columns="1" class="">
+
+            <li class="first">
+              <a href="#"><span>Красные</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Белые</span></a>
+            </li>
+
+            <li>
+              <a href="#"><span>Желтые</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Разноцветные</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Синие</span></a>
+            </li>
+
+
+            <li class="last">
+              <a href="#"><span>Фиолетовые</span></a>
+            </li>
+          </ul>
+
+        </li>
+
+
+        <li class=" down">
+          <a href="#"><span>Подарки</span><i class="fas fa-angle-down"></i></a>
+          <ul data-columns="1" class="">
+            <li class="first">
+            </li>
+            <li>
+              <a href="#"><span>Открытки и игрушки</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Подарочные корзины</span></a>
+            </li>
+
+            <li class="last">
+              <a href="#"><span>Детские подарки</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="down">
+          <a href="#" onclick="return false;"><span>Шары</span><i class="fas fa-angle-down"></i></a>
+          <ul data-columns="1" class="">
+            <li class="first">
+              <a href="#"><span>Шары без рисунка</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Шары с рисунком</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Шары с конфетти</span></a>
+            </li>
+
+            <li class="last">
+              <a href="#"><span>Светящиеся шары</span></a>
+            </li>
+
+
+          </ul>
+        </li>
+        <li class="last down">
+          <a href="#" onclick="return false;"><span>Оформление</span><i class="fas fa-angle-down"></i></a>
+          <ul data-columns="1" class="">
+            <li class="first">
+              <a href="#"><span>Праздничный стол</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Оформление зала</span></a>
+            </li>
+            <li>
+              <a href="#"><span>Фотозона</span></a>
+            </li>
+            <li class="last">
+              <a href="#"><span>Оформление кортежа</span></a>
+            </li>
+
+          </ul>
+        </li>
+
+        </ul>
+      </nav>
+    </div>
+
+
+{% block content %}
+
+{%endblock%}
+
+</body>
+<script src="{% static 'main/js/script.js' %}"></script>
+<script src="{%static 'main/js/min.js'%}"></script>
+<script src="{%static 'main/js/fotorama.js'%}"></script>  
+
+<hr>
+<footer>
+  <nav class="footer_1">
+    <div class="LOGO_f">
+      
+     <a class="LOGO" href="{% url 'home' %}">
+       <div class="logo">FLEUR<br /><span class="black">DE</span><br />BEAUTÉ</div>
+      </a>
+    </div>
+    <div class="social">
+      <a class="icon" href="#"> <i class="fab fa-instagram"></i></a>
+      <a class="icon" href="#"> <i class="fab fa-vk"></i></a>
+    </div>
+    
+  </nav>
+  <nav class="footer_1">
+    <b class="W">Информация</b>
+    <a class="f" href="{% url 'about' %}">О нас</a>
+    <a class="f" href="{% url 'delivery' %}">Доставка и оплата</a>
+    <a class="f" href="{% url 'reviews_home' %}">Отзывы</a>
+    <a class="f" href="{% url 'contacts' %}">Контакты</a>
+  </nav>
+  <nav class="footer_1">
+    <b class="W">Мой аккаунт</b>
+    <a class="f" href="{% url 'history' %}">Личный кабинет</a>
+    <a class="f" href="{% url 'basket' %}">Корзина</a>
+    <a class="f" href="{% url 'favorite' %}">Список желаний</a>
+  </nav>
+  <nav class="footer_1">
+    <b class="W">Контакты</b>
+    <a class="f_">г. Иркутск, Ленина 11</a>
+    <a class="f_">+7(334)4353345</a>
+    <a class="f_">sv.ermolaeva@yandex.ru</a>
+  </nav>
+</footer>
+
+</html>

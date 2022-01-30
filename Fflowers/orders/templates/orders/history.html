@@ -1,0 +1,165 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}История заказов{%endblock%}
+
+{%block content%}
+{% load static %}
+<head>
+  <meta name="description" content="История заказов" />
+
+</head>
+    <ul class="breadcrumb">
+      <li><a href="{% url 'home' %}">Главная</a></li>
+
+
+      <li>История заказов</li>
+    </ul>
+    <h1>История заказов</h1>
+
+
+  <div class="his_1">
+    <div class="re">
+	 <ul class="main-menu">
+      <li><a href="{% url 'setting' %}l">Настройки</a></li>
+
+      <li><a class="active" href="{% url 'favorite' %}">Избранное</a></li>
+      <li><a href="{% url 'basket' %}">Корзина</a></li>
+      <li><a href="{% url 'history' %}">История заказов</a></li>
+      <li><a href="{% url 'home}">Выход</a></li>
+
+    </ul>
+      <div class="fil">
+        <ul id="accordion" class="accordion">
+          <li>
+            <a class="link" href="{% url 'setting' %}"></i>Настройки</a>
+          </li>
+
+          <li>
+            <a class="link" href="{% url 'favorite' %}"></i>Избранное</a>
+
+          </li>
+          <li>
+            <a class="link" href="{% url 'basket' %}"></i>Корзина</a>
+
+          </li>
+          <li>
+            <a class="link" href="{% url 'history' %}"></i>История заказов</a>
+
+          </li>
+          <li>
+            <a class="link" href="{% url 'home' %}"></i>Выход</a>
+
+          </li>
+
+        </ul>
+      </div>
+      <div class="cat_">
+        {% for order in order %}
+
+        <div class="hist">
+          <div class="hist_">
+            <table class="h_num">
+              <tr>
+                <td>Номер заказа:</td>
+                <td>{{order.id}}</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="hist_">
+
+            <table class="h_st">
+              <tr>
+                <td>Статус заказа:</td>
+                <td>{{order.get_status_display}}</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="hist_">
+            <table class="h_date">
+              <tr>
+                <td>Дата заказа:</td>
+                <td>{{order.dateorder|date:"d.m.Y"}}</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="hist_">
+            <table class="h__date">
+              <tr>
+                <td>Дата доставки:</td>
+                <td>{{order.datedelivery|date:"d.m.Y"}}</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="hist_">
+            <table class="h_ad">
+              <tr>
+                <td>Адрес:</td>
+                <td>{{order.address}}</td>
+              </tr>
+
+            </table>
+
+
+          </div>
+          
+          <div class="more">
+            
+            <a id="toggleLink" href="javascript:void(0);" onclick="viewdiv('{{order.id}}' );" data-text-show="Подробнее"
+              data-text-hide="Подробнее">Подробнее</a>
+            <div id="{{order.id}}" style="display:none;">
+              <table>
+                <hr>
+                <tr>
+                  <th>Товар</th>
+                  <th>Стоимость</th>
+                  <th>Кол-во</th>
+                  <th>Сумма</th>
+                </tr>
+                <tr>
+                  {%for x in order.order.all %}
+
+                  <td><a class="name1" href="{% url 'product_info' x.product.id%}">{{x.product.name_product}}</a></td>
+                  <td>{{x.quantity}}</td>
+                  <td>{{x.product.price}}</td>
+                  <td>{%  widthratio x.quantity 1 x.product.price as total %}{{total}} </td>
+                  <tr>
+                  {% endfor %}
+                  <td colspan="3"><b>Итого</b></td>
+                  <td>354700 Р</td>
+                </tr>
+
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+        {% endfor %}
+
+
+
+      </div>
+
+    </div>
+  </div>
+  <div class="pag">
+    <ul class="pagination">
+      <li><a href="#">«</a></li>
+      <li><a href="#">1</a></li>
+      <li><a class="active" href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">6</a></li>
+      <li><a href="#">7</a></li>
+      <li><a href="#">»</a></li>
+    </ul>
+  </div>
+  </main>
+
+</body>
+{%endblock%}

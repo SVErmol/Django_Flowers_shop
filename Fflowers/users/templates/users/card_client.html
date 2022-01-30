@@ -1,0 +1,324 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Карточка клиента №{{client.id}}{%endblock%}
+
+{%block content%}
+{% load static %}
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'admmin_home'%}">Главная</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'clients'%}">Клиенты</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Карточка клиента №{{client.id}}</li>
+            </ol>
+        </nav>
+        <h1 class="">Карточка клиента №{{client.id}}</h1>
+        <div class="row">
+
+            <a type="button" href="{% url 'change_client' client.id %}" class="btn btn-secondary d-block
+                            ml-auto mr-lg-2 col-lg-1 mb-1"><i class="fas fa-pen"></i></a>
+            <button type="button" class="btn btn-secondary d-block
+                            mr-lg-3 col-lg-1 mb-1" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas
+                                fa-trash-restore"></i></button>
+
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <form method="POST" action="{% url 'delete_client' client.id%}" class="modal-dialog modal-dialog-centered" role="document">
+                    {% csrf_token %}
+
+           
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle"> Удалить
+                            клиента</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Вы уверены?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn
+                                        btn-primary">Да</button>
+                        <button type="button" class="btn
+                                        btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <table class="table-sm">
+                    <tr>
+                        <td>
+                            <h7><b>Номер клиента:</b></h7>
+                        </td>
+                        <td>
+                            <h7>{{client.id}}</h7>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table-sm">
+                    <tr>
+                        <td>
+                            <h7><b>Имя:</b></h7>
+                        </td>
+                        <td>
+                            <h7>{{client.name}}</h7>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <table class="table-sm">
+                    <tr>
+                        <td>
+                            <h7><b>Дата рождения:</b></h7>
+                        </td>
+                        <td>
+                            <h7>{{client.birthday|date:"d.m.Y"}}</h7>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table-sm">
+                    <tr>
+                        <td>
+                            <h7><b>Номер телефона:</b></h7>
+                        </td>
+                        <td>
+                            <h7>{{client.phone}}</h7>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table-sm">
+                    <tr>
+                        <td>
+                            <h7><b>Комментарий:</b></h7>
+                        </td>
+                        <td>
+                            <h7>{{client.note}}</h7>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="">
+                        <button class="btn btn-light" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            <b>Поиск</b>
+                        </button>
+                    </h5>
+                </div>
+            </div>
+            <div id="collapseOne" class="collapse card" aria-labelledby="headingOne" data-parent="#accordion">
+
+                <div class="card-body pr-0 pb-0">
+                    <div class="col-lg-12">
+
+                        <form class="row">
+                            <div class="col-xl-6 col-md-12
+                                            col-sm-12">
+                                <div class="form-group">
+                                    <label><b>Цена</b></label>
+                                    <div class="row">
+                                        <div class="ml-1">от</div>
+                                        <div class="col"><input class="form-control"></div>
+                                        <div class="ml-1">до</div>
+                                        <div class="col"><input class="form-control"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="inputDate"><b>Дата
+                                            доставки</b></label>
+                                    <div class="row">
+                                        <div class="ml-1">от </div>
+                                        <div class="col"><input type="date" class="form-control"></div>
+                                        <div class="ml-1"> до </div>
+                                        <div class="col"><input type="date" class="form-control"></div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-xl-3 col-12 col-md-6">
+                                <div class="pb-3"> <b>Флорист </b>
+                                    <select class="form-control
+                                                    mt-2" aria-label="Default
+                                                    select example">
+                                        <option selected></option>
+                                        <option value="1">Иванов</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <b>Статус заказа </b>
+                                    <select class="form-control
+                                                    mt-2" aria-label="Default
+                                                    select example">
+                                        <option selected></option>
+                                        <option value="1">Выполнен</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-12 col-md-6">
+                                <div class="form-group mr-2">
+                                    <label for="exampleInputEmail1"><b>Номер
+                                            заказа</b></label>
+                                    <input class="form-control">
+                                </div>
+                                <div class="pb-3">
+                                    <b> Курьер </b>
+                                    <select class="form-control
+                                                    mt-2" aria-label="Default
+                                                    select example">
+                                        <option selected></option>
+                                        <option value="1">Петров</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+                            <div class="form-group col-xl-6 col-12
+                                            mr-5">
+                                <label for="exampleInputEmail1"><b>Адрес</b></label>
+                                <input class="form-control">
+                            </div>
+                        </form>
+                        <button type="submit" class="btn btn-primary
+                                        mb-1 col-xl-3 col-sm-12 d-block
+                                        ml-auto">Найти</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3> Заказы</h3>
+        <div class="row mt-2 mb-2 justify-content-start">
+
+            {% for o in client.client.all %}
+          
+            <div class="col-xl-6 col-12 mb-2">
+
+                <div class="card">
+                    <div class="card-body pr-0 pb-0">
+
+                        <div class="row">
+                            <div class="col-lg-5 col-sm-12">
+                                <table class="table-sm">
+                                    <tr>
+                                        <td><b>Номер заказа:</b></td>
+                                        <td><a href="{% url 'order_info' o.id%}">{{o.id}}</a></td>
+                                    </tr>
+                                </table>
+                                <table class="table-sm">
+                                    <tr>
+                                        <td><b>Номер клиента:</b></td>
+                                        <td>{{o.client_id}}</td>
+                                    </tr>
+                                </table>
+                                <table class="table-sm">
+                                    <tr>
+                                        <td><b>Дата заказа:</b></td>
+                                        <td>{{o.dateorder|date:"d.m.Y"}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+                            <div class="col-lg-7 col-sm-12">
+                                <table class="table-sm">
+                                    <tr>
+                                        <td><b>Статус заказа:</b></td>
+                                        <td>{{o.get_status_display}}</td>
+                                    </tr>
+                                </table>
+
+
+
+                                <table class="table-sm">
+                                    <tr>
+                                        <td><b>Дата доставки:</b></td>
+                                        <td>{{o.datedelivery|date:"d.m.Y"}}</td>
+                                    </tr>
+                                </table>
+
+
+                                <table class="table-sm">
+                                    <tr>
+                                        <td><b>Доставлено:</b></td>
+                                        <td>Доставлено</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Адрес:</b></td>
+                                <td>{{o.address}}</td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-light mb-2
+                                    mr-2 d-block ml-auto"><a href="{% url 'order_info' o.id%}">Подробнее</a></button>
+                </div>
+            </div>
+        
+
+            {% endfor %}
+
+        </div>
+
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+
+
+    </div>
+
+    {%endblock%}

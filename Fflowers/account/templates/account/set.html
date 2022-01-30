@@ -1,0 +1,109 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}Настройки{%endblock%}
+
+{%block content%}
+{% load static %}
+<div class="his">
+  <div class="re">
+    <ul class="main-menu">
+      <li><a href="{% url 'setting' %}">Настройки</a></li>
+
+      <li><a class="active" href="{% url 'favorite' %}">Избранное</a></li>
+      <li><a href="{% url 'basket' %}">Корзина</a></li>
+      <li><a href="{% url 'history' %}">История заказов</a></li>
+      <li><a href="{% url 'home}">Выход</a></li>
+
+    </ul>
+    <div class="fil">
+      <ul id="accordion" class="accordion">
+        <li>
+          <a class="link" href="{% url 'setting' %}"></i>Настройки</a>
+        </li>
+
+        <li>
+          <a class="link" href="{% url 'favorite' %}"></i>Избранное</a>
+
+        </li>
+        <li>
+          <a class="link" href="{% url 'basket' %}"></i>Корзина</a>
+
+        </li>
+        <li>
+          <a class="link" href="{% url 'history' %}"></i>История заказов</a>
+
+        </li>
+        <li>
+          <a class="link" href="{% url 'home' %}"></i>Выход</a>
+
+        </li>
+
+      </ul>
+    </div>
+    <div class="sett">
+      <div class="limiter">
+        <div class="container-login100">
+          <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+            <form class="login100-form validate-form flex-sb flex-w">
+
+
+              <div class="p-t-31 p-b-9">
+                <div class="txt1">
+                  Имя </div>
+              </div>
+              <div class="wrap-input100validate-input" data-validate="Username is required">
+                <input class="input100" type="text" size="25">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="p-t-13 p-b-9">
+                <div class="txt1">
+                  Номер телефона
+                </div>
+
+              </div>
+              <div class="wrap-input100validate-input" data-validate="Password is required">
+                <input class="input100" type="" size="25">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="p-t-31 p-b-9">
+                <div class="txt1">
+                  Почта </div>
+              </div>
+              <div class="wrap-input100validate-input" data-validate="Username is required">
+                <input class="input100" type="text" size="25">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="p-t-31 p-b-9">
+                <div class="txt1">
+                  Дата рождения </div>
+              </div>
+              <div class="wrap-input100validate-input" data-validate="Username is required">
+                <input class="input100" type="date" size="25">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="container-login100-form-btnm-t-17">
+
+                <button class="login100-form-btn">
+                  Изменить
+
+                </button>
+
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="dropDownSelect1"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+</main>
+
+
+{%endblock%}

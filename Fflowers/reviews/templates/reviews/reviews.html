@@ -1,0 +1,149 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}Отзывы{%endblock%}
+
+{%block content%}
+{% load static %}
+<head>
+	<meta name="description" content="Отзывы о работе интернет-магазина в Иркутске Fleur de beaute. Оставить свои пожелания к работе нашего салона можно на нашем сайте." />
+<meta property="og:locale" content="ru-ru">
+<meta property="og:rich_attachment" content="true">
+<meta property="og:site_name" content="Fleur de beaute">
+<meta property="og:type" content="business.business" />
+<meta property="og:title" content='Отзывы – интернет-магазин в Иркутске "Fleur de beaute"'/>
+
+
+</head>
+<link rel="stylesheet" href="{%static 'lightbox2/css/lightbox.css'%}">
+
+<u  l class="breadcrumb">
+    <li><a href="index.html">Главная</a></li>
+
+
+    <li>Отзывы</li>
+</ul>
+
+<h1>Отзывы</h1>
+
+<!-- Contenedor -->
+<div class="re">
+    <div class="fil">
+        <ul id="accordion" class="accordion">
+            <li>
+                <a class="link" href="#"></i>О компании</a>
+            </li>
+            <li>
+                <div class="link"></i>Цветы<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu_1">
+                    <li><a href="#">Гортензии</a></li>
+                    <li><a href="#">Хризантемы</a></li>
+                    <li><a href="#">Тюльпаны</a></li>
+                    <li><a href="#">Орхидеи</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link"></i>Букеты<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu_1">
+                    <li><a href="#">Монобукеты</a></li>
+                    <li><a href="#">С ирисами</a></li>
+                    <li><a href="#">Букет невесты</a></li>
+                    <li><a href="#">Полевые</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link"></i>Розы<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu_1">
+                    <li><a href="#">Белые</a></li>
+                    <li><a href="#">Красные</a></li>
+                    <li><a href="#">Синие</a></li>
+                    <li><a href="#">Разноцветные</a></li>
+
+                </ul>
+            </li>
+            <li>
+                <div class="link"></i>Подарки<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu_1">
+                    <li><a href="#">Открытки и игрушки</a></li>
+                    <li><a href="#">Подарочные корзины</a></li>
+                    <li><a href="#">Детские подарки</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link"></i>Шары<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu_1">
+                    <li><a href="#">Шары без рисунка</a></li>
+                    <li><a href="#">Шары с рисунком</a></li>
+                    <li><a href="#">Шары с конфетти</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link"></i>Оформление<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu_1">
+                    <li><a href="#">Праздничный стол</a></li>
+                    <li><a href="#">Оформление зала</a></li>
+                    <li><a href="#">Фотозона</a></li>
+                    <li><a href="#">Оформление кортежа</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <div class="card_">
+        <div class="card__">
+            {% for el in reviews %}
+
+            <div class="ca">
+                <div class="product-card">
+                  
+                    <a href="{{ el.photo.url }}" rel="lightbox-one">
+                        <img src="{{ el.photo.url }}" class="b-lazy" height="350px">
+
+                    </a>
+                    <div class="information">
+                        <div class="tl">
+                            <strong>{{el.data|date:"d.m.Y"}}
+
+                                {{el.name_client}}</strong>
+                        </div>
+
+                        <div class="inf">{{el.review_text}}</div>
+
+                        <div class="t">
+                            <strong>Упомянутые товары:<br> </strong>
+                            <a href="product.html">Открытки и игрушки</a>
+                        </div>
+                    </div>
+
+
+                </div>
+                
+            </div>
+
+
+            {% endfor %}
+
+
+
+        </div>
+    </div>
+
+
+    <div class="pag">
+        <ul class="pagination">
+            <li><a href="#">«</a></li>
+            <li><a href="#">1</a></li>
+            <li><a class="active" href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">»</a></li>
+        </ul>
+    </div>
+    <script src="{%static 'lightbox2/js/jquery-1.8.3.min.js'%}"></script>
+    <script src="{%static 'lightbox2/js/lightbox.js'%}"></script>
+
+{%endblock%}

@@ -1,0 +1,819 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Необходимые товары {{product.name_product}}{%endblock%}
+
+{%block content%}
+{% load static %}
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'admmin_home'%}">Главная</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'products'%}">Товары</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Необходимые товары</li>
+            </ol>
+        </nav>
+        <h1 class="">Необходимые товары</h1>
+
+
+        <h3><a href="card_purveyor.html">Цветочная база на Ленина</a></h3>
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <h3><a href="card_purveyor.html">Цветочная база на Ленина</a></h3>
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card p-1 mb-4">
+                    <div class="card-header">
+                        <table class="table-sm">
+                            <tr>
+                                <td><b>Номер заказа:</b></td>
+                                <td><a href="card_order.html">34345</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>
+                                            Дата доставки:</b></td>
+                                    <td>13.05.2021</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Товар:</b></td>
+                                    <td><a href="product.html">Белые
+                                            розы</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Количество:</b></td>
+                                    <td>15</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Курьер:</b></td>
+                                    <td><a href="card_employee.html">Филипенко</a></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Статус:</b></td>
+
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1" >
+                                            <label class="form-check-label" for="exampleCheck1"></label>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+    </div>
+
+    {%endblock%}

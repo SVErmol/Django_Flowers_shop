@@ -1,0 +1,127 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}{{ product.name_product}}{%endblock%}
+
+{%block content%}
+{% load static %}
+<head>
+  <meta name="description" content="Избранные товары" />
+
+
+  <meta property="og:locale" content="ru_RU"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content='{{ product.name_product}}'/>
+  <meta property="og:description" content="{{ product.name_product}}"/>
+
+  <meta property="og:site_name" content="fleur de beaute - интернет-магазин цветов в Иркутске"/>
+</head>
+    <ul class="breadcrumb">
+      <li><a href="{% url 'home' %}">Главная</a></li>
+
+      <li><a href="#">Розы</a></li>
+      <li>{{ product.name_product}}</li>
+    </ul>
+    <div class="product-card">
+
+      <div class="pr_im">
+        <!-- Add images to <div class="fotorama"></div> -->
+        <div class="fotorama" data-nav="thumbs" data-autoplay="true" data-loop="true">
+          {% for x in j %}
+
+          <a href="{{ x }}"><img src="{{ x }}"></a>
+          <a href="{{ x }}"><img src="{{ x }}"></a>
+          <a href="{{ x }}"><img src="{{ x }}"></a>
+          <a href="{{ x }}"><img src="{{ x }}"></a>
+          {% endfor %}
+
+        </div>
+      </div>
+      <div class="information">
+        <div class="tl">
+          {{ product.name_product}}
+        </div>
+        <img class="img_1" width="100%" src="{{product.photo.url}}">
+
+        <div class="inf">Прекрасные цветы прекрасного цвета </div>
+
+
+        <div class="inf"> Артикул: 457546</div>
+        <div class="inf"> Состав: Pellenesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+          egestas. Proin pharetra nonummy pede. Mauris et orci.
+          Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.</div>
+        <div class="pay">
+          <span class="price"> {{product.price}} ₽</span>
+          <div class="bt">
+
+            <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+            <input type="number" min="1" max="100" value="1" readonly class="raz">
+            <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+          </div>
+          <div class="ac">
+            <div class="actions">
+              <a type="button" class="add-to-cart"><i class="fas fa-shopping-basket"></i> Купить</a>
+            </div>
+            <div class="actions">
+              <a class="wishlist"> <i class="fas fa-heart"></i></a>  
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <hr>
+    <h2>Отзывы</h2>
+    <div class="pr_f">
+      <div class="ca">
+
+        <div class="product-card">
+
+
+
+
+          <div class="information">
+            <div class="tl">
+              <strong>18.03.2021
+
+                Светлана</strong>
+            </div>
+
+            <div class="inf">Pellenesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+              egestas. Proin pharetra nonummy pede. Mauris et orci.
+              Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.Pellenesque habitant morbi tristique senectus
+              et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.
+              Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.</div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <hr>
+    <h2>Оставить отзыв</h2>
+    <div class="ot">
+      <div class="r">
+        <Label>Введите имя </Label><br>
+        <input type="text" class="na" size="25%">
+      </div>
+      <div class="r">
+        <Label>Текст отзыва </Label>
+        <textarea rows="5"></textarea>
+      </div>
+      <div class="al">
+        <div class="al_">
+          <button class="login100-form-btn"> Отправить</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+
+
+
+{%endblock%}

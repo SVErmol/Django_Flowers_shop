@@ -1,0 +1,173 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Карточка заказа №{{order.id}}{%endblock%}
+
+{%block content%}
+{% load mathfilters %}
+
+{% load static %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'admmin_home'%}">Главная</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'orders'%}">Заказы</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Карточка заказа №{{order.id}}</li>
+    </ol>
+</nav>
+<h1 class="pl-2">Карточка заказа №{{order.id}}</h1>
+<!-- <div class="row">
+
+            <button type="button" class="btn btn-secondary  d-block ml-auto mr-2 col-lg-1 mb-1"><i
+                    class="fas fa-pen"></i></button>
+            <button type="button" class="btn btn-secondary  d-block mr-2 col-lg-1 mb-1"><i
+                    class="fas fa-trash-restore"></i></button>
+        </div> -->
+<div class="row ml-1">
+
+
+
+</div>
+
+<div class="row justify-content-center ">
+
+    <div class="card mr-2 p-1 " style="width:40rem;">
+        <button type="button" onclick="window.location.href='{% url 'change_order' order.id %}'"
+            class="btn btn-light  d-block ml-auto "><i class="far fa-edit"></i></button>
+        <div class="row col-12 ">
+            <div class="col-lg-6 col-md-6   p-0">
+                <table class="table-sm  ">
+                    <tr>
+                        <td><b>Номер заказа:</b></td>
+                        <td>{{order.id}}</td>
+                    </tr>
+                </table>
+
+                <table class="table-sm  ">
+                    <tr>
+                        <td><b>Статус заказа:</b></td>
+                        <td>{{order.get_status_display}}</td>
+                    </tr>
+                </table>
+
+
+                <table class="table-sm ">
+                    <tr>
+                        <td><b>Дата доставки:</b></td>
+                        <td>{{order.datedelivery|date:"d.m.Y"}}</td>
+                    </tr>
+                </table>
+
+
+
+                <div class="">
+                    <table class="table-sm">
+                        <tr>
+                            <td><b>Дата заказа:</b></td>
+                            <td>{{order.dateorder|date:"d.m.Y"}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <table class="table-sm">
+                    <tr>
+                        <td><b>Доставлено:</b></td>
+                        <td>Доставлено</td>
+                    </tr>
+                </table>
+                <table class="table-sm">
+                    <tr>
+                        <td><b>Адрес:</b></td>
+                        <td>{{order.address}}</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col-lg-6 col-md-6 p-0">
+
+                <table class="table-sm">
+                    <tr>
+                        <td><b>Номер клиента:</b></td>
+                        <td><a href="{% url 'client_info' order.client_id%}">{{order.client_id}}</a></td>
+                    </tr>
+                </table>
+
+                <table class="table-sm  ">
+                    <tr>
+                        <td><b>Номер телефона:</b></td>
+                        <td>{{order.client.phone}}</td>
+                    </tr>
+                </table>
+
+
+                <table class="table-sm">
+                    <tr>
+                        <td><b>Имя клиента:</b></td>
+                        <td>{{order.client.name}}</td>
+                    </tr>
+                </table>
+
+                <table class="table-sm">
+                    <tr>
+                        <td><b>Имя курьера:</b></td>
+                        <td><a href="{% url 'employee_info' order.courier_id%}">{{order.courier.name}}</a></td>
+                    </tr>
+                </table>
+
+                <table class="table-sm ">
+                    <tr>
+                        <td><b>Имя флориста:</b></td>
+                        <td><a href="{% url 'employee_info' order.florist_id%}">{{order.florist.name}}</a></td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <table class="table-sm">
+                <tr>
+                    <td><b>Комментарий:</b></td>
+                    <td>{{order.note}}</td>
+                </tr>
+            </table>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Товар</th>
+                    <th>Количество</th>
+                    <th>Стоимость</th>
+                    <th>Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for x in order.order.all %}
+                <tr>
+                    <th scope="row"><a href="{% url 'product_info_ad' x.product.id%}">{{x.product.name_product}}</a></th>
+                    <td>{{x.quantity}}</td>
+                    <td>{{x.product.price}}</td>
+                    <td>{%  widthratio x.quantity 1 x.product.price as total %}{{total}} 
+                    </td>
+                </tr>
+                {% endfor %}
+                
+                <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td>     </td>
+                    
+                    <td>   
+                      43435
+                        
+                        </td>
+                    
+                    
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+{%endblock%}

@@ -1,0 +1,108 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Обратная связь{%endblock%}
+
+{%block content%}
+{% load static %}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'admmin_home'%}">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Обратная
+          связь</li>
+      </ol>
+    </nav>
+    <h1 class="">Обратная связь</h1>
+
+
+    <div class="row mt-2 justify-content-start justify-content-sm-center">
+            {% for feedback in feedback %}
+
+      <div class="col-xl-6 col-md-6 cpl-sm-12">
+        <div class="card p-1  mb-4">
+
+          <div class="card-header">
+            <table class="table-sm">
+              <tr>
+                <td><b>Имя:</b></td>
+                <td>{{feedback.name}}</td>
+              </tr>
+            </table>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <table class="table-sm">
+                <tr>
+                  <td><b>Номер телефона:</b></td>
+                  <td>{{feedback.phone}}</td>
+                </tr>
+              </table>
+            </li>
+            <li class="list-group-item">
+              <table class="table-sm">
+                <tr>
+                  <td><b>Дата:</b></td>
+                  <td>{{feedback.date|date:"d.m.Y"}}</td>
+                </tr>
+              </table>
+            </li>
+            <li class="list-group-item">
+              <table class="table-sm">
+                <tr>
+                  <td class="align-top"><b>Сообщение:</b></td>
+                  <td>{{feedback.text}}</td>
+                </tr>
+              </table>
+            </li>
+            <li class="list-group-item">
+              <table class="table-sm">
+                <tr>
+
+                  <td><b>Статус:</b></td>
+                  <td>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                      <label class="form-check-label" for="defaultCheck1">
+                        Обработан
+                      </label>
+
+                    </div>
+                  </td>
+
+                </tr>
+
+              </table>
+
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      {% endfor %}
+
+    </div>
+
+
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
+  </div>
+  {%endblock%}

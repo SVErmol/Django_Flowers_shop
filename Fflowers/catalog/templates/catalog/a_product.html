@@ -1,0 +1,549 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Карточка товара {{product.name_product}}{%endblock%}
+
+{%block content%}
+{% load static %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'admmin_home'%}">Главная</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'products'%}">Товары</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{product.name_product}}</li>
+    </ol>
+</nav>
+<h1 class="">{{product.name_product}}</h1>
+
+<div class="row">
+
+    <a type="button" href="{% url 'change_product' product.id %}"
+        class="btn btn-secondary  d-block  mr-lg-3 mb-2 ml-auto col-lg-1"><i class="fas fa-pen"></i></a>
+
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"> Добавить отзыв</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body ">
+                <div class="row justify-content-center">
+                    <div class="form-group col-8">
+                        <label for="exampleInputEmail1"><b>Имя</b></label>
+
+                        <input class="form-control">
+
+                    </div>
+
+
+                    <div class="form-group col-8">
+                        <label for="exampleInputEmail1"><b>Дата</b></label>
+
+                        <input type="date" class="form-control ">
+
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="exampleFormControlTextarea1"><b>Текст</b></label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            style="resize: none;"></textarea>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1"><b>Добавить фото</b></label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Сохранить</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row  justify-content-center">
+
+
+    <div class=" col-lg-12">
+        <div>
+            <table class="table-sm">
+                <tr>
+                    <td><b>Название:</b></td>
+                    <td>{{product.name_product}}</td>
+                </tr>
+            </table>
+
+            <table class="table-sm ">
+                <tr>
+                    <td><b>Описание:</b></td>
+                    <td>Прекрасные цветы</td>
+                </tr>
+            </table>
+            <table class="table-sm">
+                <tr>
+                    <td><b>Поставщик:</b></td>
+                    <td>{{product.purveyor.name}}</td>
+                </tr>
+            </table>
+
+
+            <table class="table-sm">
+                <tr>
+                    <td><b>Артикул:</b></td>
+                    <td>456789876</td>
+                </tr>
+            </table>
+
+            <table class="table-sm">
+                <tr>
+                    <td><b>Категория:</b></td>
+                    <td>{{product.subcategory.name}}</td>
+                </tr>
+            </table>
+
+            <table class="table-sm">
+                <tr>
+                    <td><b>Цена:</b></td>
+                    <td>{{product.price}}</td>
+                </tr>
+            </table>
+            <table class="table-sm ">
+                <tr>
+                    <td>
+                        <h7><b>Состав:</b></h7>
+                    </td>
+                    <td>
+                        <h7>Белые розы</h7>
+                    </td>
+                </tr>
+            </table>
+            <table class="table-sm ">
+                <tr>
+                    <td>
+                        <h7><b>Показать на главной</b></h7>
+                    </td>
+                    <td>
+                        <h7>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" checked="{{product.show}}" value="" id="defaultCheck1" disabled>
+                                <label class="form-check-label" for="defaultCheck1">
+
+                                </label>
+                            </div>
+                        </h7>
+                    </td>
+                </tr>
+            </table>
+            <div class="mb-4">
+                {% for x in j %}
+                <img src="{{x}}" alt="..." class="img-thumbnail mr-3" width="150">
+                {% endfor %}
+            </div>
+
+        </div>
+        <h3>Отзывы</h3>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="">
+                        <button class="btn btn-light" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            <b>Добавить отзыв</b>
+                        </button>
+                    </h5>
+                </div>
+            </div>
+            <div id="collapseOne" class="collapse card" aria-labelledby="headingOne" data-parent="#accordion">
+
+                <div class="card-body pr-0 pb-0">
+                    <div class="col-lg-12">
+
+                        <div class="row justify-content-center">
+
+                            <div class="form-group col-lg-8 col-12">
+                                <label for="exampleInputEmail1"><b>Имя</b></label>
+
+                                <input class="form-control">
+
+                            </div>
+
+                            <div class="form-group col-lg-8 col-12">
+
+                                <label for="exampleInputEmail1  "><b>Дата</b></label>
+
+                                <input type="date" class="form-control ">
+
+                            </div>
+
+                            <div class="form-group col-lg-8 col-12">
+                                <label for="exampleFormControlTextarea1"><b>Текст</b></label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    style="resize: none;"></textarea>
+                            </div>
+                            <form>
+                                <div class="form-group row сol-12">
+                                    <label for="exampleFormControlFile1"><b>Добавить фото</b></label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Сохранить</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-xl-6 col-sm-12">
+                <div class="card mb-3 ">
+
+                    <div class="card-header ">
+
+                        <div class="row">
+                            <div class="pt-2 pl-2">19.03.2020</div>
+                            <button type="button" onclick="window.location.href='change_order.html'"
+                                class="btn btn-light  d-block  ml-auto"><i class="far fa-edit"></i></button>
+                            <button type="button" onclick="window.location.href=''" class="btn btn-light  d-block "><i
+                                    class="fas fa-trash-restore"></i></i></button>
+                            <button type="button" onclick="window.location.href=']'" class="btn btn-light  d-block  "><i
+                                    class="far fa-eye-slash"></i></button>
+
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Светлана</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas
+                            porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus
+                            malesuada libero, sit amet commodo magna eros quis urna.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-sm-12">
+                <div class="card mb-3 ">
+                    <div class="card-header">
+                        19.03.2020
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Светлана</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas
+                            porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus
+                            malesuada libero, sit amet commodo magna eros quis urna.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-sm-12">
+
+                <div class="card mb-3 ">
+                    <div class="card-header">
+                        19.03.2020
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <img src="screen.jpg" alt="..." class="img-thumbnail mr-4" width="150">
+                            <div class="col">
+                                <h5 class="card-title">Светлана</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                    Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar
+                                    ultricies,
+                                    purus lectus malesuada libero, sit amet commodo magna eros quis urna.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-sm-12">
+
+                <div class="card mb-3 ">
+                    <div class="card-header">
+                        19.03.2020
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <img src="screen.jpg" alt="..." class="img-thumbnail mr-4" width="150">
+                            <div class="col">
+                                <h5 class="card-title">Светлана</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                    Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar
+                                    ultricies,
+                                    purus lectus malesuada libero, sit amet commodo magna eros quis urna.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne1">
+                    <h5 class="">
+                        <button class="btn btn-light" data-toggle="collapse" data-target="#collapseOne1"
+                            aria-expanded="true" aria-controls="collapseOne1">
+                            <b>Поиск</b>
+                        </button>
+                    </h5>
+                </div>
+            </div>
+            <div id="collapseOne1" class="collapse card " aria-labelledby="headingOne1" data-parent="#accordion">
+
+                <div class="card-body pb-0 ">
+                    <div class="col-lg-12  ">
+
+                        <form class="row">
+                            <div class="col-xl-6 col-md-12 col-sm-12">
+                                <div class="form-group   ">
+                                    <label><b>Цена</b></label>
+                                    <div class="row">
+                                        <div class="ml-1">от</div>
+                                        <div class="col"><input class="form-control"></div>
+                                        <div class="ml-1">до</div>
+                                        <div class="col "><input class="form-control"></div>
+                                    </div>
+                                </div>
+
+                                <div class=" form-group ">
+
+                                    <label for="inputDate"><b>Дата доставки</b></label>
+                                    <div class="row">
+                                        <div class="ml-1 ">от </div>
+                                        <div class="col "><input type="date" class="form-control "></div>
+                                        <div class="ml-1"> до </div>
+                                        <div class="col  "><input type="date" class="form-control "></div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-xl-3 col-12 col-md-6">
+                                <div class="pb-3  "> <b>Флорист </b>
+                                    <select class="form-control mt-2" aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="1">Иванов</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+
+                                </div>
+
+
+
+                                <div class=" form-group ">
+                                    <b>Статус заказа </b>
+                                    <select class="form-control mt-2" aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="1">Выполнен</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-12 col-md-6">
+                                <div class="form-group  mr-2">
+                                    <label for="exampleInputEmail1"><b>Номер заказа</b></label>
+                                    <input class="form-control">
+
+                                </div>
+                                <div class="pb-3  ">
+                                    <b> Курьер </b>
+                                    <select class="form-control mt-2" aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="1">Петров</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+
+                                </div>
+
+                            </div>
+                            <div class=" form-group col-xl-6 col-12 mr-5 ">
+                                <label for="exampleInputEmail1"><b>Адрес</b></label>
+                                <input class="form-control">
+                            </div>
+                        </form>
+                        <button type="submit"
+                            class="btn btn-primary mb-1 d-block col-xl-3 col-sm-12 ml-auto">Найти</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>Заказы</h3>
+
+        <div class="row mt-2 mb-2 justify-content-center">
+
+
+            <div class="card mr-2 mb-2" style="width:35rem;">
+                <div class="card-body pb-0">
+
+                    <div class="row">
+                        <div class="col-lg-5 col-sm-12">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Номер заказа:</b></td>
+                                    <td><a href="card_order.html">34345</a></td>
+                                </tr>
+                            </table>
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Номер клиента:</b></td>
+                                    <td><a href="#">34567</a></td>
+                                </tr>
+                            </table>
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Дата заказа:</b></td>
+                                    <td>24.03.2021</td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                        <div class="col-lg-7 col-sm-12">
+                            <table class="table-sm  ">
+                                <tr>
+                                    <td><b>Статус заказа:</b></td>
+                                    <td>Выполнен</td>
+                                </tr>
+                            </table>
+
+
+
+                            <table class="table-sm ">
+                                <tr>
+                                    <td><b>Дата доставки:</b></td>
+                                    <td>01.04.2021 10:15</td>
+                                </tr>
+                            </table>
+
+
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Доставлено:</b></td>
+                                    <td>Доставлено</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <table class="table-sm">
+                        <tr>
+                            <td><b>Адрес:</b></td>
+                            <td>Красноказачья 19</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <button type="submit" class="btn btn-light mb-2 mr-2 d-block ml-auto"><a
+                        href="card_order.html">Подробнее</a></button>
+            </div>
+            <div class="card mr-2 mb-2" style="width:35rem;">
+                <div class="card-body pb-0">
+
+                    <div class="row">
+                        <div class="col-lg-5 col-sm-12">
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Номер заказа:</b></td>
+                                    <td><a href="card_order.html">34345</a></td>
+                                </tr>
+                            </table>
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Номер клиента:</b></td>
+                                    <td><a href="#">34567</a></td>
+                                </tr>
+                            </table>
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Дата заказа:</b></td>
+                                    <td>24.03.2021</td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                        <div class="col-lg-7 col-sm-12">
+                            <table class="table-sm  ">
+                                <tr>
+                                    <td><b>Статус заказа:</b></td>
+                                    <td>Выполнен</td>
+                                </tr>
+                            </table>
+
+
+
+                            <table class="table-sm ">
+                                <tr>
+                                    <td><b>Дата доставки:</b></td>
+                                    <td>01.04.2021 10:15</td>
+                                </tr>
+                            </table>
+
+
+                            <table class="table-sm">
+                                <tr>
+                                    <td><b>Доставлено:</b></td>
+                                    <td>Доставлено</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <table class="table-sm">
+                        <tr>
+                            <td><b>Адрес:</b></td>
+                            <td>Красноказачья 19</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <button type="submit" class="btn btn-light mb-2 mr-2 d-block ml-auto"><a
+                        href="card_order.html">Подробнее</a></button>
+            </div>
+
+
+        </div>
+
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+{%endblock%}

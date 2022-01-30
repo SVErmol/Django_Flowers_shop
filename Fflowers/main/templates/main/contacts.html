@@ -1,0 +1,83 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}Контакты{%endblock%}
+
+{%block content%}
+{% load static %}
+<head>
+  <meta name="description" content="&#10004; Интернет-магазин fleur de beaute – контакты доставки цветов в Иркутске; Телефон:345435" />
+
+  <meta property="og:locale" content="ru_RU"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content='Контакты - адрес магазина цветов в Иркутске'/>
+  <meta property="og:description" content="&#10004; Интернет-магазин fleur de beaute – контакты доставки цветов в Иркутске; Телефон: 43534454"/>
+
+  <meta property="og:site_name" content="fleur de beaute - интернет-магазин цветов в Иркутске"/>
+  
+</head>
+  <ul class="breadcrumb">
+ <li><a href="{% url 'home' %}">Главная</a></li>
+
+      <li>Контакты</li>
+    </ul>
+
+    <h1>Контакты</h1>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="contacts-page-block">
+          <div class="title-h3">Контакты</div>
+
+          <div class="element"><i class="fa fa-map-marker"></i> 664003 , Россия
+            г. Иркутск, Ленина 11</div>
+
+
+          <div class="element"><i class="fa fa-phone"></i> <a class="">+79453422343</a></div>
+
+
+
+
+          <div class="element"><i class="fa fa-envelope"></i> <a href="#">sv.ermolaeva@yandex.ru</a></div>
+
+
+
+          <div class="element">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <div>C 08:00 до 22:00 без выходных.
+              Оформление заявок происходит круглосуточно, их исполнение происходит согласно режиму работы компании.
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <div class="content">
+          <div class="title-h3">Юридическая информация</div>
+          <div class="element">
+            <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce
+              posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis
+              urna.
+
+              Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="map">
+
+      <script type="text/javascript" charset="utf-8" async
+        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa6e60f21514b6da8093bda326eac8715880556d944feee772bc928ed43be6ff5&amp;width=100%&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+
+    </div>
+
+
+
+
+{%endblock%}

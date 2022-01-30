@@ -1,0 +1,153 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Товары{%endblock%}
+
+{%block content%}
+{% load static %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'admmin_home'%}">Главная</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Товары</li>
+  </ol>
+</nav>
+<h1 class="">Товары</h1>
+
+<div class="row  ">
+
+  <button type="button" onclick="window.location.href='{% url 'category'%}'"
+    class="btn btn-secondary  d-block mr-0 ml-auto mr-lg-3 col-lg-2 mb-1">Категории </button>
+  <a href="{% url 'product_add'%}" class="btn btn-secondary  d-block mr-0 mr-lg-3 col-lg-1  mb-1"><i
+      class="fas fa-plus"></i></a>
+</div>
+<div class="row  pt-4  ">
+
+  <div class="col-lg-2">
+    <h2>Поиск</h2>
+    <form method="GET" action="{% url 'products' %}">
+      <div class="form-group">
+        <label for="exampleInputEmail1"><b>Название</b></label>
+        <input class="form-control" name="name" value="{{search_query}}">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1"><b>Цена</b></label>
+        <br> от<input class="form-control" name="price1" value="{{price1}}">
+        <br>до <input class="form-control" name="price2" value="{{price2}}">
+
+      </div>
+
+      <div class="pb-3">
+        <b>Кому</b>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Женщине
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+          <label class="form-check-label" for="defaultCheck2">
+            Мужчине
+          </label>
+        </div>
+
+      </div>
+
+      <div class="pb-3">
+        <b>Кому</b>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+          <label class="form-check-label" for="defaultCheck3">
+            Женщине
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+          <label class="form-check-label" for="defaultCheck4">
+            Мужчине
+          </label>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn btn-primary  btn-block ml-auto">Найти</button>
+    </form>
+  </div>
+
+  <div class=" col-lg-10 justify-content-center ">
+    <form class="form-group mt-3 row" method="GET" action="{% url 'products' %}">
+
+      <label for="inputEmail3" class="ml-3 mr-au col-form-label">Сортировка</label>
+      <div class="col-lg-3 col-md-4 col-sm-12">
+        <select class="form-control" aria-label="Default select
+              example" name="sort" onchange="this.form.submit()">
+          <!-- <option selected></option> -->
+          <option value="price" {% if sort == "price" %} selected{% endif %}>по возрастанию цены</option>
+          <option value="-price" {% if sort == "-price" %} selected{% endif %}>по убыванию цены</option>
+          <option value="name_product" {% if sort == "name_product" %} selected{% endif %}>по алфавиту</option>
+        </select>
+      </div>
+      <label for="inputEmail3" class="col-form-label ml-lg-auto
+            ml-md-auto ml-3">Показать по</label>
+      <div class="col-lg-3 col-md-4 col-sm-12">
+        <select class="form-control" aria-label="Default select
+              example" name="count" onchange="this.form.submit()">
+          <!-- <option selected></option> -->
+          <option value="2" {% if count == 2 %} selected{% endif %}>2</option>
+          <option value="3" {% if count == 3 %} selected{% endif %}>3</option>
+          <option value="4" {% if count == 4 %} selected{% endif %}>4</option>
+        </select>
+      </div>
+
+
+    </form>
+    <div class="row justify-content-start">
+      {% for product in product %}
+      {% for key, value in js.items %}
+      {% if key == product.id %}
+      <div class="col-xl-4 col-md-6 ">
+        <a href="{% url 'product_info_ad' product.id%}" class="btn btn-light">
+          <div class="card">
+            {% for z in value %}
+            <img class="card-img-top" src="{{z}}" alt="Card image
+                  cap">
+              {% endfor %}
+            <div class="card-body">
+              <h5 class="card-title">{{product.name_product}}</h5>
+              <p class="card-text">{{product.price}} Р</p>
+
+            </div>
+          </div>
+        </a>
+
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</а>
+
+<section class="col-12 mt-2">
+  <nav aria-label="Пример навигации по страницам">
+    <ul class="pagination justify-content-center">
+      <li class="page-item {% if not prev %} disabled {% endif %}">
+        <a class="page-link" href="{{ prev }}&count={{count}}{{query}}" tabindex="-1" aria-disabled="true">«</a>
+      </li>
+      {% for x in product.paginator.page_range %}
+      {% if x == product.number %}
+      <li class="page-item active"><a class="page-link" href="?page={{ x }}&count={{count}}{{query}}">{{ x }}</a></li>
+      {% elif x > product.number|add:-3 and x < product.number|add:3 %} <li class="page-item"><a class="page-link"
+          href="?page={{ x }}&count={{count}}{{query}}">{{ x }}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        <li class="page-item {% if not next %} disabled {% endif %}">
+          <a class="page-link" href="{{ next }}&count={{count}}{{query}}">»</a>
+        </li>
+    </ul>
+  </nav>
+</section>
+</div>
+
+{%endblock%}

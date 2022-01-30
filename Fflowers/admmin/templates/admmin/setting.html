@@ -1,0 +1,60 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Настройки{{order.id}}{%endblock%}
+
+{%block content%}
+{% load mathfilters %}
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Настройки</li>
+            </ol>
+        </nav>
+        <h1 class="">Настройки</h1>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-6 ">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            <h6>Имя</h6>
+                        </label>
+                        <input class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            <h6>Фамилия</h6>
+                        </label>
+                        <input class="form-control">
+
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputDate">
+                            <h6>Дата рождения</h6>
+                        </label>
+                        <input type="date" class="form-control ">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            <h6>Номер телефона</h6>
+                        </label>
+                        <input class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            <h6>Паспортные данные</h6>
+                        </label>
+                        <input class="form-control">
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary  btn-block ml-auto">Сохранить</button>
+                </form>
+            </div>
+
+        </div>
+        {%endblock%}

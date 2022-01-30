@@ -1,0 +1,67 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Редактировать сотрудника № {{employee.id}}{%endblock%}
+
+{%block content%}
+{% load static %}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'admmin_home'%}">Главная</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'employees'%}">Сотрудники</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'employee_info' employee.id %}">Сотрудник № {{employee.id}}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Изменить данные </li>
+  </ol>
+</nav>
+<h1 class="">Изменить данные </h1>
+<form method="POST" action="{% url 'change_employee' employee.id %}">
+  {%csrf_token%}
+  <div class="row justify-content-center">
+    <div class="form-group col-12 col-xl-8 col-md-8">
+      <label for="exampleInputEmail1"><b>Имя</b></label>
+
+      <input class="form-control" name="name" value="{{employee.name}}" >
+
+    </div>
+
+    <div class="form-group col-12 col-xl-8 col-md-8">
+      <label for="exampleInputEmail1"><b>Номер телефона</b></label>
+
+      <input class="form-control" name="phone" value="{{employee.phone}}">
+
+    </div>
+    <div class="form-group col-12 col-xl-8 col-md-8">
+      <label for="exampleInputEmail1"><b>Паспортные данные</b></label>
+
+      <input class="form-control">
+
+    </div>
+    <div class="form-group col-12 col-xl-8 col-md-8">
+      <label for="exampleInputEmail1"><b>Должность</b></label>
+
+      <select class="form-control" aria-label="Default select example">
+        <option selected></option>
+        <option value="1">Администратор</option>
+        <option value="2">Флорист</option>
+        <option value="3">Курьер</option>
+      </select>
+    </div>
+    <div class="form-group col-12 col-xl-8 col-md-8">
+      <label for="exampleInputEmail1"><b>Дата рождения</b></label>
+
+      <input type="date" class="form-control " name="birthday" value="{{employee.birthday|date:'Y-m-d'}}">
+
+    </div>
+    <div class="form-group col-12 col-xl-8 col-md-8">
+      <div class="row justify-content-center">
+
+        <button type="button" class="btn btn-secondary  d-block ml-auto mr-lg-1 col-lg-2 mb-2">Сохранить</button>
+        <button type="button" class="btn btn-secondary  d-block mr-lg-3  mb-2 col-lg-2">Закрыть</button>
+
+      </div>
+    </div>
+  </div>
+</form>
+
+
+{%endblock%}

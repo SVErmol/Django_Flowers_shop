@@ -1,0 +1,127 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}Корзина{%endblock%}
+
+{%block content%}
+{% load static %}
+    <ul class="breadcrumb">
+      <li><a href="{% url 'home' %}">Главная</a></li>
+
+
+      <li>Корзина</li>
+    </ul>
+
+    <h1>Корзина</h1>
+    <div class="his">
+      <div class="re">
+	   <ul class="main-menu">
+      <li><a href="{% url 'setting' %}">Настройки</a></li>
+
+      <li><a class="active" href="{% url 'favorite' %}">Избранное</a></li>
+      <li><a href="{% url 'basket' %}">Корзина</a></li>
+      <li><a href="{% url 'history' %}">История заказов</a></li>
+      <li><a href="{% url 'home}">Выход</a></li>
+
+    </ul>
+      <div class="fil">
+        <ul id="accordion" class="accordion">
+          <li>
+            <a class="link" href="{% url 'setting' %}"></i>Настройки</a>
+          </li>
+
+          <li>
+            <a class="link" href="{% url 'favorite' %}"></i>Избранное</a>
+
+          </li>
+          <li>
+            <a class="link" href="{% url 'basket' %}"></i>Корзина</a>
+
+          </li>
+          <li>
+            <a class="link" href="{% url 'history' %}"></i>История заказов</a>
+
+          </li>
+          <li>
+            <a class="link" href="{% url 'home' %}"></i>Выход</a>
+
+          </li>
+
+          </ul>
+        </div>
+        <div class="cat_">
+
+
+          <div class="cat">
+            {% for basket in basket %}
+
+            <div class="product-inner">
+              <div class="product-wrap">
+                <img src="{{basket.productfav.photo.url}}">
+
+              </div>
+
+              <div class="product-info">
+                <a class="product-title" href="">{{basket.productfav.name_product}}</a>
+                <br>
+                <span class="price"> {{basket.productfav.price}} ₽</span>
+              </div>
+
+              <div class="bt">
+
+                <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                <input type="number" min="1" max="100" value="1" readonly class="raz">
+                <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+              </div>
+            </div>
+            {% endfor %}
+ 
+            <table>
+              <tr>
+                <th>Фото</th>
+                <th>Товар</th>
+                <th>Стоимость</th>
+                <th>Количество</th>
+                <th>Сумма</th>
+              </tr>
+              {% for basket in basket %}
+
+              <tr>
+                <td><img src="{{basket.productfav.photo.url}} " height="120"></td>
+                <td><a href="{% url 'product_info' basket.productfav.id%}">{{basket.productfav.name_product}}</a></td>
+                <td>{{basket.productfav.price}} Р</td>
+                <td>
+                  <div class="bt">
+
+                    <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                    <input type="number" min="1" max="100" value="1" readonly class="raz">
+                    <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                  </div>
+                </td>
+                <td>34530 Р</td>
+              </tr>
+              {% endfor %}
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Итого</b></td>
+                <td>354700 Р</td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <table class="total">
+        <td><b>Итого</b></td>
+        <td> 354700 Р</td>
+      </table>
+      <div class="al">
+        <a href="" class="all">Заказать</a>
+      </div>
+  </main>
+
+</body>
+{%endblock%}

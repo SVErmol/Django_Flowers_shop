@@ -1,0 +1,59 @@
+{%extends 'main/layout.html'%}
+
+{%block title%}Доставка{%endblock%}
+
+{%block content%}
+{% load static %}
+<head>
+  <meta name="description" content="Оформить заказ с доставкой в Иркутске можно на сайте, по телефону, или заказать бесплатный обратный звонок" />
+
+  <meta property="og:locale" content="ru_RU"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content='Доставка'/>
+  <meta property="og:description" content="Оформить заказ с доставкой в Иркутске можно на сайте, по телефону, или заказать бесплатный обратный звонок."/>
+
+  <meta property="og:site_name" content="fleur de beaute - интернет-магазин цветов в Иркутске"/>
+  
+</head>
+ <ul class="breadcrumb">
+    <li><a href="{% url 'home' %}">Главная</a></li>
+
+
+      <li>Доставка и оплата</li>
+    </ul>
+    <h1>Доставка и оплата</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="contacts-page-block">
+          <div class="title-h3">Условия доставки</div>
+
+          <div class="element">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue
+            massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna
+            eros quis urna.
+
+            Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Lorem ipsum dolor sit amet, consectetuer
+            adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus
+            malesuada libero, sit amet commodo magna eros quis urna.
+
+            Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.Lorem ipsum dolor sit amet, consectetuer adipiscing
+            elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada
+            libero, sit amet commodo magna eros quis urna.
+
+            Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.</div>
+
+
+
+
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <div class="content">
+          <div class="map">
+            <script type="text/javascript" charset="utf-8" async
+              src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A47a2dfe65f4c29782b1beb2199a53a3a0fad46c4ea4622c8e41fd5690112a4c1&amp;width=100%&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+{%endblock%}

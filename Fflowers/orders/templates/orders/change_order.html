@@ -1,0 +1,419 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Изменить заказ{%endblock%}
+
+{%block content%}
+{% load static %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'admmin_home'%}">Главная</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'orders'%}">Заказы</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Изменить заказ</li>
+  </ol>
+</nav>
+<h1 class="">Изменить заказ</h1>
+<form method="POST" action="{% url 'change_order' order.id %}">
+  {%csrf_token%}
+
+  <div class=" ml-1 row justify-content-center">
+
+
+    <div class="  col-lg-8 col-sm-12 p-0">
+
+
+
+      <div class="form-group col-xl-9 col-12 p-0">
+        <label for="exampleInputEmail1"><b class="">Клиент</b>
+        </label>
+        <div class="row ml-1">
+          <input class="form-control col-5 mr-1" disabled>
+
+          <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn  btn-light"><i
+              class="fas fa-plus  "></i></button>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle"> Добавить клиента</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body ">
+              <div class="row justify-content-center">
+                <div class="form-group col-11">
+                  <label for="exampleInputEmail1"><b>Номер телефона</b></label>
+
+                  <input class="form-control">
+
+                </div>
+
+
+              </div>
+              <div class="row">
+                <button type="button" class="btn btn-light ml-1 mr-1 mb-1 btn-block">Поиск</button>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-10  mb-2 mt-2">
+                  <div class="card  ">
+                    <div class="card-header">
+                      <table class="table-sm">
+                        <tr>
+                          <td><b>Номер клиента:</b></td>
+                          <td><a href="card_client.html">34345</a></td>
+                        </tr>
+                      </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                      <li class="list-group-item">
+                        <table class="table-sm">
+                          <tr>
+                            <td><b>Имя:</b></td>
+                            <td>Светлана</td>
+                          </tr>
+                        </table>
+                      </li>
+                      <li class="list-group-item">
+                        <table class="table-sm">
+                          <tr>
+                            <td><b>Номер телефона:</b></td>
+                            <td>3433456745</td>
+                          </tr>
+                        </table>
+                      </li>
+                      <li class="list-group-item">
+                        <table class="table-sm">
+                          <tr>
+                            <td><b>Дата последнего заказа:</b></td>
+                            <td>10.04.2020</td>
+                          </tr>
+                        </table>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Добавить</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-xl-9 col-12 p-0">
+        <label for="exampleInputEmail1"><b class="">Курьер</b>
+        </label>
+        <div class="row ml-1">
+          <input class="form-control col-5 mr-1" disabled>
+
+          <button type="button" data-toggle="modal" data-target="#exampleModalCenter1" class="btn  btn-light"><i
+              class="fas fa-plus  "></i></button>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle"> Добавить курьера</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body ">
+              <div class="row justify-content-center">
+                <div class="form-group col-11">
+                  <label for="exampleInputEmail1"><b>Имя</b></label>
+
+                  <input class="form-control">
+
+                </div>
+
+
+              </div>
+              <div class="row">
+                <button type="button" class="btn btn-light ml-1 mr-1 mb-1 btn-block">Поиск</button>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-10  mb-2 mt-2">
+                  <div class="card  ">
+                    <div class="card-header">
+                      <table class="table-sm">
+                        <tr>
+                          <td><b>Номер сотрудника:</b></td>
+                          <td><a href="card_client.html">34345</a></td>
+                        </tr>
+                      </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                      <li class="list-group-item">
+                        <table class="table-sm">
+                          <tr>
+                            <td><b>Имя:</b></td>
+                            <td>Светлана</td>
+                          </tr>
+                        </table>
+                      </li>
+                      <li class="list-group-item">
+                        <table class="table-sm">
+                          <tr>
+                            <td><b>Номер телефона:</b></td>
+                            <td>3433456745</td>
+                          </tr>
+                        </table>
+                      </li>
+                      <li class="list-group-item">
+                        <table class="table-sm">
+                          <tr>
+                            <td><b>Должность:</b></td>
+                            <td>Курьер</td>
+                          </tr>
+                        </table>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Добавить</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-xl-9 col-12 p-0">
+        <label for="exampleInputEmail1"><b class="">Флорист</b>
+        </label>
+        <div class="row ml-1">
+          <input class="form-control col-5  mr-1" disabled>
+
+          <button type="button" data-toggle="modal" data-target="#exampleModalCenter3" class="btn  btn-light"><i
+              class="fas fa-plus  "></i></button>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle"> Добавить флориста</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body ">
+              <div class="row justify-content-center">
+                <div class="form-group col-11">
+                  <label for="exampleInputEmail1"><b>Имя</b></label>
+
+                  <input class="form-control">
+
+                </div>
+
+
+              </div>
+              <div class="row">
+                <button type="button" class="btn btn-light ml-1 mr-1 mb-1 btn-block">Поиск</button>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-10  mb-2 mt-2">
+                  <div class="card  ">
+                    <div class="card-header">
+                      <table class="table-sm">
+                        <tr>
+                          <td><b>Номер сотрудника:</b></td>
+                          <td><a href="card_client.html">34345</a></td>
+                        </tr>
+                      </table>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                      <li class="list-group-item">
+                        <table class="table-sm">
+                          <tr>
+                            <td><b>Имя:</b></td>
+                            <td>Светлана</td>
+                          </tr>
+                        </table>
+                      </li>
+                      <li class="list-group-item">
+                        <table class="table-sm">
+                          <tr>
+                            <td><b>Номер телефона:</b></td>
+                            <td>3433456745</td>
+                          </tr>
+                        </table>
+                      </li>
+                      <li class="list-group-item">
+                        <table class="table-sm">
+                          <tr>
+                            <td><b>Должность:</b></td>
+                            <td>Флорист</td>
+                          </tr>
+                        </table>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Добавить</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-xl-9 col-12 p-0">
+        <label for="exampleInputEmail1"><b>Дата</b></label>
+        <div class="row ml-1 mr-auto ">
+          <input class="form-control col-6 col-lg-6" type="date">
+          <input class="form-control col-6 col-lg-5 ml-auto" type="time">
+        </div>
+      </div>
+      <div class="form-group col-xl-9 col-12 p-0">
+        <label for="exampleInputEmail1"><b>Адрес</b></label>
+
+        <input class="form-control" name="address" value="{{order.address}}">
+
+      </div>
+      <div class="form-group col-xl-9 col-12 p-0">
+        <label for="exampleFormControlTextarea1"><b>Комментарий</b></label>
+        <input class="form-control" name="note" value="{{order.note}}">
+      </div>
+      <div class="row ml-1">
+        <div class="form-group col-xl-4 col-11 p-0">
+          <label for="exampleFormControlTextarea1"><b>Доставлено</b></label>
+          <select class="form-control " aria-label="Default select example">
+            <option selected></option>
+            <option value="1">Доставлено</option>
+
+          </select>
+        </div>
+        <div class="form-group col-xl-4 ml-xl-2 col-11 p-0">
+          <label for="exampleFormControlTextarea1"><b>Статус</b></label>
+          <select class="form-control " aria-label="Default select example">
+            <option selected></option>
+            <option value="1">По номеру клиента</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group col-xl-9 col-12 p-0">
+        <label for="exampleInputEmail1"><b>Товары</b></label><button type="button" data-toggle="modal"
+          data-target="#exampleModalCenter1" class="btn btn-light mb-1"><i class="fas fa-plus  "></i></button>
+        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"> Добавить товар</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body ">
+                <div class="row justify-content-center">
+                  <div class="form-group col-11">
+                    <label for="exampleInputEmail1"><b>Название</b></label>
+
+                    <input class="form-control">
+
+                  </div>
+
+
+                </div>
+                <div class="row">
+                  <button type="button" class="btn btn-light ml-1 mr-1 mb-1 btn-block">Поиск</button>
+                </div>
+                <div class="row justify-content-center">
+                  <a href="product.html" class="btn btn-light ">
+                    <div class="card " style="width: 15rem;">
+                      <img class="card-img-top" src="123.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Белые розы</h5>
+                        <p class="card-text">1999 Р</p>
+
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="form-group col-12">
+
+                  <label for="exampleInputEmail1"><b class="">Количество</b></label>
+
+                  <input class="form-control">
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Добавить</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table class="table p-0 col-sm-12">
+          <thead>
+            <tr>
+              <th>Товар</th>
+              <th>Количество</th>
+              <th>Стоимость</th>
+              <th>Сумма</th>
+              <th>Удалить</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><a href="product.html">Белые розы</a></th>
+              <td class="justify-content-center">5</td>
+              <td>350</td>
+              <td>1750</td>
+              <td><a href=""><i class="fas fa-trash-restore"></i></a></td>
+
+            </tr>
+            <tr>
+              <th scope="row"><a href="product.html">Белые розы</a></th>
+              <td>5</td>
+              <td>350 </td>
+              <td>1750 </td>
+              <td><a href=""><i class="fas fa-trash-restore"></i></a></td>
+
+            </tr>
+
+
+
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td><b>3250</b></td>
+              <td></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row ml-1 justify-content-center">
+
+    <button type="submit" class="btn btn-secondary  d-block ml-auto mr-1 col-lg-2 mb-2">Сохранить</button>
+    <button type="button" class="btn btn-secondary  d-block mr-1  mb-2  col-lg-2">Закрыть</button>
+
+  </div>
+  </div>
+</form>
+{%endblock%}

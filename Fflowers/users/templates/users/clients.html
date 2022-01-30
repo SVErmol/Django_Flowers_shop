@@ -1,0 +1,151 @@
+{%extends 'admmin/layout.html'%}
+
+{%block title%}Клиенты{%endblock%}
+
+{%block content%}
+{% load static %}
+
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'admmin_home'%}">Главная</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Клиенты</li>
+  </ol>
+</nav>
+<h1 class="">Клиенты</h1>
+<a href="{% url 'client_add'%}" class="btn btn-secondary  ml-auto d-block col-lg-1  col-xs-12 mb-1"><i
+    class="fas fa-plus"></i></a>
+
+<div class="row ">
+
+  <div class="col-lg-3 ">
+    <h2>Поиск</h2>
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">
+          <b>Номер клиента</b>
+        </label>
+        <input class="form-control">
+
+      </div>
+      <div class="form-group ">
+        <label for="inputDate">
+          <b>Дата последнего заказа</b>
+        </label>
+        <BR>от <input type="date" class="form-control ">
+        до <input type="date" class="form-control ">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">
+          <b>Номер телефона</b>
+        </label>
+        <input class="form-control">
+
+      </div>
+
+      <button type="submit" class="btn btn-primary  btn-block ml-auto">Найти</button>
+    </form>
+  </div>
+  <div class=" col-lg-9">
+
+
+
+
+    <div class="form-group mt-3 row">
+      <label for="inputEmail3" class=" ml-3 mr-au col-form-label">Сортировка</label>
+      <div class="col-lg-3 col-md-4 col-sm-12 ">
+        <select class="form-control " aria-label="Default select example">
+          <option selected></option>
+          <option value="1">По номеру клиента</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+      <label for="inputEmail3" class="col-form-label ml-lg-auto ml-md-auto ml-3  ">Показать по</label>
+      <form class="col-lg-3 col-md-4 col-sm-12 "  method="get" action="{% url 'clients' %}">
+        <select name="show_by" class="form-control" aria-label="Default select example" onchange="this.form.submit()">
+          <option selected></option>
+          <option value="1">10</option>
+          <option value="2">20</option>
+          <option value="3">Three</option>
+        </select>
+      </form>
+
+
+    </div>
+    <div class="row mt-2  justify-content-start ">
+      {% for client in client %}
+      <div class="col-12 mb-4 col-lg-6 col-xl-6">
+
+        <div class="card  ">
+          <div class="card-header">
+            <table class="table-sm">
+              <tr>
+                <td><b>Номер клиента:</b></td>
+                <td><a href="{% url 'client_info' client.id%}">{{client.id}}</a></td>
+              </tr>
+            </table>
+          </div>
+          <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+              <table class="table-sm">
+                <tr>
+                  <td><b>Имя:</b></td>
+                  <td>{{client.name}}</td>
+                </tr>
+              </table>
+            </li>
+            <li class="list-group-item">
+              <table class="table-sm">
+                <tr>
+                  <td><b>Номер телефона:</b></td>
+                  <td>{{client.phone}}</td>
+                </tr>
+              </table>
+            </li>
+            <li class="list-group-item">
+              <table class="table-sm">
+                <tr>
+                  <td><b>Дата последнего заказа:</b></td>
+                  <td>10.04.2020</td>
+                </tr>
+              </table>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      {% endfor %}
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<section class="col-12 mt-2">
+  <nav aria-label="Пример навигации по страницам">
+    <ul class="pagination justify-content-center">
+      <li class="page-item {% if not prev %} disabled {% endif %}">
+        <a class="page-link" href="{{ prev }}&count={{count}}{{query}}" tabindex="-1" aria-disabled="true">«</a>
+      </li>
+      {% for x in client.paginator.page_range %}
+      {% if x == client.number %}
+      <li class="page-item active"><a class="page-link" href="?page={{ x }}&count={{count}}{{query}}">{{ x }}</a></li>
+      {% elif x > client.number|add:-3 and x < client.number|add:3 %} <li class="page-item"><a class="page-link"
+          href="?page={{ x }}&count={{count}}{{query}}">{{ x }}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        <li class="page-item {% if not next %} disabled {% endif %}">
+          <a class="page-link" href="{{ next }}&count={{count}}{{query}}">»</a>
+        </li>
+    </ul>
+  </nav>
+</section>
+
+</div>
+
+{%endblock%}
